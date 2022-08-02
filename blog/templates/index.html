@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<style>
+    .img-thumbnail {
+        height: 200px;
+        width: auto;
+    }
+    .card-body {
+        height: 500px;
+    }
+    .read-more-btn {
+        bottom: 20px;
+    }
+</style>
+
+<header class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-10 mx-auto">
+                <div>
+                    <h3 class="my-4 mt-3 text-white">{% trans 'welcome_heading' %}</h3>
+                    <p class="text-light">{% trans 'welcome_text' %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <a href="{% url 'home' %}">{% trans 'all' %}</a>
+    {% for tag in tags %}
+        <a href="{% url 'articles_by_tag' tag.name %}">{{tag.name}}</a>
+    {% endfor %}
+    <div class="row mt-5">
+        {% for article in article_list %}
+            {% get_current_language as LANGUAGE_CODE %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                {{ article.titleEn }}
+                            {% else %}
+                                {{ article.titleDe }}
+                            {% endif %}
+                        </h2>
+                        <div class="text-center">
+                            <img class="img-thumbnail" alt="{{ article.titleEn }}" src="{{ article.thumbnail.url }}" />
+                        </div>
+                        <p>
+                            {% if LANGUAGE_CODE == 'en' %}
+                                {{ article.contentEn | slice:":200" | safe }}
+                            {% else %}
+                                {{ article.contentDe | slice:":200" | safe }}
+                            {% endif %}
+                        </p>
+                        <br>
+                        <a href="{% url 'article_detail' article.slug  %}" class="btn btn-primary position-absolute read-more-btn">{% trans 'read_more' %} &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}
