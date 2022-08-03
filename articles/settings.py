@@ -25,7 +25,10 @@ SECRET_KEY = '5lw&tb2fakl9jbb8aj01=+b$ply=r32%s!$86c=)1081^cnjta'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'articles-7792-stage.us.aldryn.io',
+    'articles-7792.us.aldryn.io'
+]
 
 
 # Application definition
