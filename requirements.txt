@@ -11,3 +11,4 @@ pilkit==2.0
 Pillow==9.2.0
 six==1.16.0
 sqlparse==0.4.2
+uwsgi==2.0.19.1
