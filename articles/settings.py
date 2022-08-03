@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'articles.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = os.environ.get('DEFAULT_DATABASE_DSN')
 DATABASES = {'default': dj_database_url.config()}
 
 
