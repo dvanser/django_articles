@@ -12,4 +12,4 @@ RUN python manage.py compilemessages
 
 
 ENV PORT=80
-CMD uwsgi --module=myapp.wsgi --http=0.0.0.0:$PORT
+CMD uwsgi --module=blog.wsgi --http=0.0.0.0:$PORT
