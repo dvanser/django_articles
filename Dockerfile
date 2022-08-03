@@ -12,4 +12,4 @@ RUN python manage.py compilemessages
 
 
 ENV PORT=80
-CMD uwsgi --http=0.0.0.0:$PORT --module=backend.wsgi --master --workers=4 --max-requests=1000 --lazy-apps --need-app --http-keepalive --harakiri 65 --vacuum --strict --single-interpreter --die-on-term --disable-logging --log-4xx --log-5xx --cheaper=2 --enable-threads
+CMD uwsgi --module=myapp.wsgi --http=0.0.0.0:$PORT
