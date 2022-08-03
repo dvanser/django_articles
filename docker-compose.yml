@@ -14,6 +14,7 @@ services:
             - '.:/app:rw'
             - './data:/data:rw'
         command: python manage.py runserver 0.0.0.0:80
+        env_file: .local-env
     db:
         image: postgres:13.5-alpine
         ports:
