@@ -33,7 +33,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'articles-7792-stage.us.aldryn.io',
     'articles-7792.us.aldryn.io',
-    'localhost'
+    'localhost',
+    '10.0.0.121'
 ]
 
 
