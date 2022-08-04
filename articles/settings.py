@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'articles.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = os.environ.get('DEFAULT_DATABASE_DSN')
 DATABASES = {'default': dj_database_url.config()}
 
 
