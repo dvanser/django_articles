@@ -5,12 +5,21 @@
 <div class="container">
     <div class="card px-3 py-3 mt-5">
         <div class="text-center">
-            <img class="img-thumbnail" alt="{{ article.title }}" src="{{ article.image.url }}" />
+            <img class="img-thumbnail" alt="{{ article.titleEn }}" src="{{ article.image.url }}" />
         </div>
-        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'en' %}
+            <h1>{% block title %} {{ object.titleEn }} {% endblock title %}</h1>
+        {% else %}
+             <h1>{% block title %} {{ object.titleDe }} {% endblock title %}</h1>
+        {% endif %}
         <p>{{ object.created }}</p>
         <hr>
-        <p class="card-text ">{{ object.content | safe }}</p>
+         {% if LANGUAGE_CODE == 'en' %}
+            <p class="card-text ">{{ object.contentEn | safe }}</p>
+        {% else %}
+             <p class="card-text ">{{ object.contentDe | safe }}</p>
+        {% endif %}
   </div>
 </div>
 
