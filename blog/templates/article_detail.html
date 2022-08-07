@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
 <div class="container">
@@ -9,9 +11,9 @@
         </div>
         {% get_current_language as LANGUAGE_CODE %}
         {% if LANGUAGE_CODE == 'en' %}
-            <h1>{% block title %} {{ object.titleEn }} {% endblock title %}</h1>
+            <h1>{{ object.titleEn }}</h1>
         {% else %}
-             <h1>{% block title %} {{ object.titleDe }} {% endblock title %}</h1>
+             <h1>{{ object.titleDe }}</h1>
         {% endif %}
         <p>{{ object.created }}</p>
         <hr>
