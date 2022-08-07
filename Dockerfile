@@ -10,6 +10,9 @@ COPY . /app/
 
 RUN python manage.py compilemessages
 
+RUN python manage.py collectstatic --noinput
+
+EXPOSE 80
 
 ENV PORT=80
 CMD uwsgi --module=articles.wsgi --http=0.0.0.0:$PORT
